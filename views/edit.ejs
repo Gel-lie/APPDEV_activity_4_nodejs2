@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Info</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, black, lightpink); /* Black to faded light pink */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .card {
+            background-color: #000; /* Black card background */
+            border-radius: 16px;
+            border: 2px solid #ff007f; /* Neon pink border */
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.8); /* Neon pink glow */
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff; /* White heading */
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #fff; /* White label text */
+            width: 100%;
+            text-align: left;
+        }
+
+        .card input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ff007f; /* Neon pink border */
+            border-radius: 8px;
+            width: 100%;
+            background-color: #333; /* Dark gray input background */
+            color: #fff; /* White text */
+        }
+
+        .button {
+            background-color: #ff007f; /* Neon pink button */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%; /* Ensure full width */
+            text-align: center;
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: 0.3s; /* Smooth transition */
+            text-shadow: 0 0 5px #ff007f; /* Neon glow effect */
+        }
+
+        .button:hover {
+            background-color: #ff1ac9; /* Brighter neon pink on hover */
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.8); /* Stronger neon glow on hover */
+        }
+
+        .back-button {
+            background-color: #ffcccb; /* Pale pink for back button */
+            color: black;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 90%; /* Ensure full width to match the update button */
+            text-align: center;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s; /* Smooth transition */
+            text-shadow: 0 0 5px #ff007f; /* Neon glow effect */
+        }
+
+        .back-button:hover {
+            background-color: #ff9999; /* Lighter pink on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Edit Info</h1>
+        <form action="/edit/<%= info.id %>" method="post">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="First Name" value="<%= info.firstname %>" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="<%= info.lastname %>" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email" value="<%= info.email %>" required>
+
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" name="gender" placeholder="Gender" value="<%= info.gender %>" required>
+
+            <input type="submit" value="UPDATE" class="button">
+        </form> 
+
+        <a href="/information" class="back-button">GO BACK TO LIST</a>
+    </div>
+</body>
+</html>
